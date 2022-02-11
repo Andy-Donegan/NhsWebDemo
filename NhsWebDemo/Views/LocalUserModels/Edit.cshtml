@@ -1,0 +1,144 @@
+﻿@model NhsWebDemo.Models.LocalUserModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>LocalUserModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="iD" />
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="organisation" class="control-label"></label>
+                <input asp-for="organisation" class="form-control" />
+                <span asp-validation-for="organisation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dailyAppointments" class="control-label"></label>
+                <input asp-for="dailyAppointments" class="form-control" />
+                <span asp-validation-for="dailyAppointments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dailyAttended" class="control-label"></label>
+                <input asp-for="dailyAttended" class="form-control" />
+                <span asp-validation-for="dailyAttended" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dailyCancelled" class="control-label"></label>
+                <input asp-for="dailyCancelled" class="form-control" />
+                <span asp-validation-for="dailyCancelled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dailyNonCompliance" class="control-label"></label>
+                <input asp-for="dailyNonCompliance" class="form-control" />
+                <span asp-validation-for="dailyNonCompliance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dailyLate" class="control-label"></label>
+                <input asp-for="dailyLate" class="form-control" />
+                <span asp-validation-for="dailyLate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dailySafetyAlerts" class="control-label"></label>
+                <input asp-for="dailySafetyAlerts" class="form-control" />
+                <span asp-validation-for="dailySafetyAlerts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dailyMissingData" class="control-label"></label>
+                <input asp-for="dailyMissingData" class="form-control" />
+                <span asp-validation-for="dailyMissingData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weeklyAppointments" class="control-label"></label>
+                <input asp-for="weeklyAppointments" class="form-control" />
+                <span asp-validation-for="weeklyAppointments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weeklyAttended" class="control-label"></label>
+                <input asp-for="weeklyAttended" class="form-control" />
+                <span asp-validation-for="weeklyAttended" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weeklyCancelled" class="control-label"></label>
+                <input asp-for="weeklyCancelled" class="form-control" />
+                <span asp-validation-for="weeklyCancelled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weeklyNonCompliance" class="control-label"></label>
+                <input asp-for="weeklyNonCompliance" class="form-control" />
+                <span asp-validation-for="weeklyNonCompliance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weeklyLate" class="control-label"></label>
+                <input asp-for="weeklyLate" class="form-control" />
+                <span asp-validation-for="weeklyLate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weeklySafetyAlerts" class="control-label"></label>
+                <input asp-for="weeklySafetyAlerts" class="form-control" />
+                <span asp-validation-for="weeklySafetyAlerts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weeklyMissingData" class="control-label"></label>
+                <input asp-for="weeklyMissingData" class="form-control" />
+                <span asp-validation-for="weeklyMissingData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="monthlyAppointments" class="control-label"></label>
+                <input asp-for="monthlyAppointments" class="form-control" />
+                <span asp-validation-for="monthlyAppointments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="monthlyAttended" class="control-label"></label>
+                <input asp-for="monthlyAttended" class="form-control" />
+                <span asp-validation-for="monthlyAttended" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="monthlyCancelled" class="control-label"></label>
+                <input asp-for="monthlyCancelled" class="form-control" />
+                <span asp-validation-for="monthlyCancelled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="monthlyNonCompliance" class="control-label"></label>
+                <input asp-for="monthlyNonCompliance" class="form-control" />
+                <span asp-validation-for="monthlyNonCompliance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="monthlyLate" class="control-label"></label>
+                <input asp-for="monthlyLate" class="form-control" />
+                <span asp-validation-for="monthlyLate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="monthlySafetyAlerts" class="control-label"></label>
+                <input asp-for="monthlySafetyAlerts" class="form-control" />
+                <span asp-validation-for="monthlySafetyAlerts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="monthlyMissingData" class="control-label"></label>
+                <input asp-for="monthlyMissingData" class="form-control" />
+                <span asp-validation-for="monthlyMissingData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

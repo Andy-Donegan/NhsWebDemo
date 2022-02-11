@@ -1,0 +1,159 @@
+﻿@model NhsWebDemo.Models.LocalUserModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LocalUserModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.organisation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.organisation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dailyAppointments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dailyAppointments)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dailyAttended)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dailyAttended)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dailyCancelled)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dailyCancelled)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dailyNonCompliance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dailyNonCompliance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dailyLate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dailyLate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dailySafetyAlerts)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dailySafetyAlerts)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dailyMissingData)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dailyMissingData)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weeklyAppointments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weeklyAppointments)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weeklyAttended)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weeklyAttended)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weeklyCancelled)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weeklyCancelled)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weeklyNonCompliance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weeklyNonCompliance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weeklyLate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weeklyLate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weeklySafetyAlerts)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weeklySafetyAlerts)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weeklyMissingData)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weeklyMissingData)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.monthlyAppointments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.monthlyAppointments)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.monthlyAttended)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.monthlyAttended)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.monthlyCancelled)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.monthlyCancelled)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.monthlyNonCompliance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.monthlyNonCompliance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.monthlyLate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.monthlyLate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.monthlySafetyAlerts)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.monthlySafetyAlerts)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.monthlyMissingData)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.monthlyMissingData)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="iD" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

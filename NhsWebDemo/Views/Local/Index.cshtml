@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Local";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Dashboard at Supervisor Level</p>
+
+<p>Primarily Datatable showing users under supervisor and various stats etc.</p>
+
+<p>Ability to select user and see performance data (new page ?) i.e. cancelled/attended/non compliance/missed meetings Mobile app statistics to assist with safety operating procedures.</p>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Active Users
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="btnradio" id="showDaily" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="showDaily">Daily</label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="showWeekly" autocomplete="off">
+              <label class="btn btn-outline-primary" for="showWeekly">Weekly</label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="showMonthly" autocomplete="off">
+              <label class="btn btn-outline-primary" for="showMonthly">Monthly</label>
+            </div>
+        </div>
+        <div class="card-body">
+             <table id="example" class="table table-striped table-bordered dt-responsive wrap" width="100%" cellspacing="0">  
+            <thead>  
+                <tr>  
+                    <th>ID</th>  
+                    <th>Name</th>  
+                    <th>Organisation</th>  
+
+                    <th>Appointments</th>  
+                    <th>Attended</th>
+                    <th>Cancelled</th>
+                    <th>Non Compliance</th>
+                    <th>Late</th>
+                    <th>Safety Alerts</th>
+                    <th>Missing Data</th>
+
+                    <th>Appointments</th>  
+                    <th>Attended</th>
+                    <th>Cancelled</th>
+                    <th>Non Compliance</th>
+                    <th>Late</th>
+                    <th>Safety Alerts</th>
+                    <th>Missing Data</th>
+
+                    <th>Appointments</th>  
+                    <th>Attended</th>
+                    <th>Cancelled</th>
+                    <th>Non Compliance</th>
+                    <th>Late</th>
+                    <th>Safety Alerts</th>
+                    <th>Missing Data</th>
+
+                    <th>Details</th>  
+                </tr>  
+            </thead>  
+            </table>
+        </div>
+    </div>
+
+        <script src="~/js/localUserTable.js" ></script>

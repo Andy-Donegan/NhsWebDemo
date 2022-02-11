@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+         <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -69,15 +70,15 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                                 Index
                             </a>
-                            <a class="nav-link" asp-area="" asp-controller="NHS" asp-action="Local">
+                            <a class="nav-link" asp-area="" asp-controller="Local" asp-action="Index">
                                 <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
                                 Local
                             </a>
-                            <a class="nav-link" asp-area="" asp-controller="NHS" asp-action="Regional">
+                            <a class="nav-link" asp-area="" asp-controller="Region" asp-action="Index">
                                 <div class="sb-nav-link-icon"><i class="fas fa-map-marked-alt"></i></div>
                                 Regional
                             </a>
-                            <a class="nav-link" asp-area="" asp-controller="Nhs" asp-action="National">
+                            <a class="nav-link" asp-area="" asp-controller="National" asp-action="Index">
                                 <div class="sb-nav-link-icon"><i class="fas fa-flag"></i></div>
                                 National
                             </a>
@@ -118,16 +119,13 @@
     <script src="~/js/chart-area-demo.js"></script>
     <script src="~/js/chart-bar-demo.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="~/js/datatables-simple-demo.js" ></script>
+@*    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="~/js/datatables-simple-demo.js" ></script>*@
 
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+@*    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.11.4/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/fh-3.2.1/sp-1.4.0/sl-1.3.4/datatables.min.js"></script>*@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.11.4/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/fh-3.2.1/sp-1.4.0/sl-1.3.4/datatables.min.js"></script>
-
-
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

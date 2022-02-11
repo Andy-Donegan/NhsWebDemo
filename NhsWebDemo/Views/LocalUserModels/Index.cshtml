@@ -1,0 +1,167 @@
+﻿@model IEnumerable<NhsWebDemo.Models.LocalUserModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.organisation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dailyAppointments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dailyAttended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dailyCancelled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dailyNonCompliance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dailyLate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dailySafetyAlerts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dailyMissingData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weeklyAppointments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weeklyAttended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weeklyCancelled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weeklyNonCompliance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weeklyLate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weeklySafetyAlerts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weeklyMissingData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monthlyAppointments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monthlyAttended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monthlyCancelled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monthlyNonCompliance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monthlyLate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monthlySafetyAlerts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monthlyMissingData)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.organisation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dailyAppointments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dailyAttended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dailyCancelled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dailyNonCompliance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dailyLate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dailySafetyAlerts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dailyMissingData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weeklyAppointments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weeklyAttended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weeklyCancelled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weeklyNonCompliance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weeklyLate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weeklySafetyAlerts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weeklyMissingData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyAppointments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyAttended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyCancelled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyNonCompliance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyLate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlySafetyAlerts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyMissingData)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.iD">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.iD">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.iD">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
