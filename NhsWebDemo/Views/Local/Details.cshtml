@@ -4,24 +4,54 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container-fluid px-4">
+    <h3 class="mt-4">@Html.DisplayFor(model => model.name) (@Html.DisplayFor(model => model.organisation)) : @ViewData["Title"]</h3>
 
-<div>
-    <h4>LocalUserModel</h4>
+    <div class="row">
+        <!--Danger Red-->
+        <div class="col-xl-4 col-md-8">
+            <div class="card bg-danger text-white mb-4">
+                <div class="card-body">Operators out of reach</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <!--Warning Yellow-->
+        <div class="col-xl-4 col-md-8">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">Upcoming breach of SOP</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <!--Safe Green-->
+        <div class="col-xl-4 col-md-8">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">Operator not updating</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <!--Data Blue-->
+ @*       <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">Total Operators</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>*@
+
+    </div>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.organisation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.organisation)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.dailyAppointments)
         </dt>
@@ -149,8 +179,28 @@
             @Html.DisplayFor(model => model.monthlyMissingData)
         </dd>
     </dl>
-</div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.iD">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    Area Chart Example
+                </div>
+                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Bar Chart Example
+                </div>
+                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+            </div>
+        </div>
+    </div>
 </div>
