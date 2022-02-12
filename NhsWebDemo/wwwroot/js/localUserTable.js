@@ -14,7 +14,7 @@
                 "searchable": false
             },
                 {
-                    "targets": [24], // remove sortable from Details Button Column
+                    "targets": [26], // remove sortable from Details Button Column
                     "visible": true,
                     "sortable": false
                 }
@@ -23,6 +23,8 @@
                 { "data": "iD", "name": "ID", "autoWidth": true },
                 { "data": "name", "name": "Name", "autoWidth": true },
                 { "data": "organisation", "name": "Organisation", "autoWidth": true },
+                { "data": "service", "name": "service", "autoWidth": true },
+                { "data": "location", "name": "location", "autoWidth": true },
                 { "data": "dailyAppointments", "name": "dailyAppointments", "autoWidth": true },
                 { "data": "dailyAttended", "name": "dailyAttended", "autoWidth": true },
                 { "data": "dailyCancelled", "name": "dailyCancelled", "autoWidth": true },
