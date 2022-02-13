@@ -102,7 +102,7 @@ namespace NhsWebDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult LoadData()
+        public IActionResult LoadUserData()
         {
             try
             {
@@ -157,6 +157,14 @@ namespace NhsWebDemo.Controllers
                 throw;
             }
 
+        }
+
+        [HttpGet]
+        public JsonResult GetMapMarker()
+        {
+            var ListOfAddress = _context.LocalUserMapModels.ToList();
+
+            return Json(ListOfAddress);
         }
     }
 }

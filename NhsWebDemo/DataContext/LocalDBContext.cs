@@ -14,5 +14,6 @@ namespace NhsWebDemo.DataContext
         }
 
         public DbSet<Models.LocalUserModel> LocalUserModels { get; set; }
+        public DbSet<Models.LocalUserMapModel> LocalUserMapModels { get; set; }
     }
 }

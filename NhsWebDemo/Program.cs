@@ -12,7 +12,7 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    //3. Get the instance of BoardGamesDBContext in our services layer
+    //3. Get the instance of LocalDBContext in our services layer
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<LocalDBContext>();
 

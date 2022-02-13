@@ -4,7 +4,7 @@
             "serverSide": true, // for process server side    
             "filter": true, // this is for disable filter (search box)    
             "ajax": {
-                "url": "/Local/LoadData",
+                "url": "/Local/LoadUserData",
                 "type": "POST",
                 "datatype": "json"
             },

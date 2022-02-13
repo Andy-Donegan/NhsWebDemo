@@ -64,6 +64,83 @@ namespace NhsWebDemo.Models
                 }
 
                 context.SaveChanges();
+                // Create Mapping Data
+                if (context.LocalUserMapModels.Any())
+                {
+                    return;   // Database has been seeded
+                }
+
+                context.LocalUserMapModels.AddRange(
+                    new LocalUserMapModel
+                    {
+                        Id = 1,
+                        Lat = 53.829721,
+                        Long = -1.778213,
+                        Title = "Travel",
+                        PointTime = "08:00",
+                        IsComplete = true,
+                        IsLate = false,
+                        IsTravel = true,
+                        LastLocation = false,
+                        ZIndex = 1,
+                    },
+                    new LocalUserMapModel
+                    {
+                        Id = 2,
+                        Lat = 53.829226,
+                        Long = -1.778373,
+                        Title = "Travel",
+                        PointTime = "08:05",
+                        IsComplete = true,
+                        IsLate = false,
+                        IsTravel = true,
+                        LastLocation = false,
+                        ZIndex = 2,
+                    },
+                    new LocalUserMapModel
+                    {
+                        Id = 3,
+                        Lat = 53.828402,
+                        Long = -1.779187,
+                        Title = "Travel",
+                        PointTime = "08:10",
+                        IsComplete = true,
+                        IsLate = false,
+                        IsTravel = true,
+                        LastLocation = false,
+                        ZIndex = 3,
+                    },
+                    new LocalUserMapModel
+                    {
+                        Id = 4,
+                        Lat = 53.827623,
+                        Long = -1.778806,
+                        Title = "Travel",
+                        PointTime = "08:15",
+                        IsComplete = true,
+                        IsLate = false,
+                        IsTravel = true,
+                        LastLocation = false,
+                        ZIndex = 4,
+                    },
+                    new LocalUserMapModel
+                    {
+                        Id = 5,
+                        Lat = 53.827665,
+                        Long = -1.778612,
+                        Title = Name.FullName(NameFormats.Standard),
+                        PointTime = "08:20",
+                        IsComplete = true,
+                        IsLate = false,
+                        IsTravel = false,
+                        LastLocation = true,
+                        ZIndex = 5,
+                    }
+                    ); ;
+
+
+                context.SaveChanges();
+
             }
         }
     }
