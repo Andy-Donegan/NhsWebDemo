@@ -63,21 +63,25 @@
             var data = markers[i]
             //set lat long of current marker
             var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            // set standard Marker Icon as Travel
             var iconUrl = "http://maps.google.com/mapfiles/kml/pal4/icon62.png";
-
+            // Check location state and change Icon accordingly
             if (!data.isTravel) {
                 if (data.isComplete) {
+                    // Appointment Complete
                     iconUrl = "http://maps.google.com/mapfiles/ms/icons/grn-pushpin.png";
                 }
                 else if (data.isLate) {
+                    // Appointment is Late
                     iconUrl = "http://maps.google.com/mapfiles/ms/icons/red-pushpin.png";
                 }
                 else {
+                    // Appointment is outstanding
                     iconUrl = "http://maps.google.com/mapfiles/ms/icons/blue-pushpin.png";
                 }
             }
             
-
+            // Create new marker
             marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
