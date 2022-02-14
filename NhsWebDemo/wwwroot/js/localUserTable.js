@@ -57,28 +57,28 @@
     $('#showDaily').on('click', function () {
         // Show Daily Data columns and hide others
         //Daily Columns
-        localTable.columns([3, 4, 5, 6, 7, 8, 9]).visible(true);
+        localTable.columns([5, 6, 7, 8, 9, 10, 11]).visible(true);
         //Weekly columns
-        localTable.columns([10, 11, 12, 13, 14, 15, 16]).visible(false);
+        localTable.columns([12, 13, 14, 15, 16, 17, 18]).visible(false);
         //Monthly columns
-        localTable.columns([17, 18, 19, 20, 21, 22, 23]).visible(false);
+        localTable.columns([19, 20, 21, 22, 23, 24, 25]).visible(false);
     });
     $('#showWeekly').on('click', function () {
         // show weekly columns and hide others
         //Daily Columns
-        localTable.columns([3, 4, 5, 6, 7, 8, 9]).visible(false);
+        localTable.columns([5, 6, 7, 8, 9, 10, 11]).visible(false);
         //Weekly columns
-        localTable.columns([10, 11, 12, 13, 14, 15, 16]).visible(true);
+        localTable.columns([12, 13, 14, 15, 16, 17, 18]).visible(true);
         //Monthly columns
-        localTable.columns([17, 18, 19, 20, 21, 22, 23]).visible(false);
+        localTable.columns([19, 20, 21, 22, 23, 24, 25]).visible(false);
     });
     $('#showMonthly').on('click', function () {
         // show monthly columns and hide others
         //Daily Columns
-        localTable.columns([3, 4, 5, 6, 7, 8, 9]).visible(false);
+        localTable.columns([5, 6, 7, 8, 9, 10, 11]).visible(false);
         //Weekly columns
-        localTable.columns([10, 11, 12, 13, 14, 15, 16]).visible(false);
+        localTable.columns([12, 13, 14, 15, 16, 17, 18]).visible(false);
         //Monthly columns
-        localTable.columns([17, 18, 19, 20, 21, 22, 23]).visible(true);
+        localTable.columns([19, 20, 21, 22, 23, 24, 25]).visible(true);
     });
 });

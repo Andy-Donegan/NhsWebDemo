@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    //enable popovers
+    $('[data-toggle="popover"]').popover();
 
     $.ajax({
         url: '/Local/GetMapMarker',
@@ -34,7 +36,7 @@
     });
 
     function initializeMap(markers) {
-    //Set the Latitude and Longitude of the Map  
+    //Set the Default Latitude and Longitude of the Map  
     var myAddress = new google.maps.LatLng(53.829721, -1.778213);
 
     //Create Options or set different Characteristics of Google Map  
@@ -43,6 +45,9 @@
         zoom: 15,
         mapTypeId: 'hybrid',
         gestureHandling: "greedy",
+        mapTypeControl: false,
+        zoomControl: false,
+        keyboardControl: false,
     };
 
     //Display the Google map in the div control with the defined Options  
@@ -61,8 +66,10 @@
         //loop through each marker data
         for (i = 0; i < markers.length; i++) {
             var data = markers[i]
-            //set lat long of current marker
+
+            //set lat long of marker
             var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+
             // set standard Marker Icon as Travel
             var iconUrl = "http://maps.google.com/mapfiles/kml/pal4/icon62.png";
             // Check location state and change Icon accordingly
@@ -101,6 +108,7 @@
             // Set last location to bounce.
             if (data.lastLocation) {
                 marker.setAnimation(google.maps.Animation.BOUNCE);
+                map.setCenter(new google.maps.LatLng(myLatlng), 15);
             }
         }
 

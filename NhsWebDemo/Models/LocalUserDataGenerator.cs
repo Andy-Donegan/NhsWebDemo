@@ -26,8 +26,20 @@ namespace NhsWebDemo.Models
                     // Generate Random field Data
                     int locationId = random.Next(0, Location.Length);
                     int serviceId = random.Next(0, Service.Length);
+                    // Generate Daily Data
                     var randomAppointments = RandomNumber.Next(5, 10);
-                    var randomAttended = RandomNumber.Next(1, randomAppointments);
+                    var randomAttended = RandomNumber.Next(2, randomAppointments-1);
+                    var randomMissingData = RandomNumber.Next(0, randomAppointments - 2);
+
+                    // Generate Weekly Data
+                    var RandomWeeklyAppointments = (RandomNumber.Next(7, 9) * 5) + RandomNumber.Next(0,5);
+                    var RandomWeeklyAttended = (RandomWeeklyAppointments - RandomNumber.Next(7,15));
+                    
+                    // Generate Monthly Data
+                    var RandomMonthlyAppointments = (RandomNumber.Next(7, 8) * 20) + RandomNumber.Next(0, 15);
+                    var randomMonthlyAttended = (RandomMonthlyAppointments - RandomNumber.Next(9, 20));
+
+
                     context.LocalUserModels.Add(
                         new LocalUserModel
                         {
@@ -38,27 +50,27 @@ namespace NhsWebDemo.Models
                             location = Location[locationId], 
                             dailyAppointments = randomAppointments,
                             dailyAttended = randomAttended,
-                            dailyCancelled = 2,
-                            dailyNonCompliance = 4,
-                            dailyLate = 3,
-                            dailySafetyAlerts = 2,
-                            dailyMissingData = 5,
+                            dailyCancelled = RandomNumber.Next(0, 2),
+                            dailyNonCompliance = RandomNumber.Next(0, 1),
+                            dailyLate = RandomNumber.Next(0,3),
+                            dailySafetyAlerts = RandomNumber.Next(0,2),
+                            dailyMissingData = RandomNumber.Next(0,randomAppointments-2),
 
-                            weeklyAppointments = randomAppointments*7,
-                            weeklyAttended = randomAttended*7,
-                            weeklyCancelled = 2,
-                            weeklyNonCompliance = 4,
-                            weeklyLate = 3,
-                            weeklySafetyAlerts = 2,
-                            weeklyMissingData = 5,
+                            weeklyAppointments = RandomWeeklyAppointments,
+                            weeklyAttended = RandomWeeklyAttended,
+                            weeklyCancelled = RandomNumber.Next(2,(RandomWeeklyAppointments-RandomWeeklyAttended)),
+                            weeklyNonCompliance = RandomNumber.Next(1, (RandomWeeklyAppointments - RandomWeeklyAttended)),
+                            weeklyLate = RandomNumber.Next(5,12),
+                            weeklySafetyAlerts = RandomNumber.Next(1,6),
+                            weeklyMissingData = RandomNumber.Next(8,RandomWeeklyAppointments/2),
 
-                            monthlyAppointments = randomAppointments,
-                            monthlyAttended = randomAttended,
-                            monthlyCancelled = 2,
-                            monthlyNonCompliance = 4,
-                            monthlyLate = 3,
-                            monthlySafetyAlerts = 2,
-                            monthlyMissingData = 5
+                            monthlyAppointments = RandomMonthlyAppointments,
+                            monthlyAttended = randomMonthlyAttended,
+                            monthlyCancelled = RandomNumber.Next(6, (RandomMonthlyAppointments - randomMonthlyAttended)),
+                            monthlyNonCompliance = RandomNumber.Next(4, (RandomMonthlyAppointments - randomMonthlyAttended)),
+                            monthlyLate = RandomNumber.Next(10, 30),
+                            monthlySafetyAlerts = RandomNumber.Next(0, 12),
+                            monthlyMissingData = RandomNumber.Next(24, RandomMonthlyAppointments / 2)
                         }
                         );
                 }
@@ -183,7 +195,7 @@ namespace NhsWebDemo.Models
                         Title = Name.FullName(NameFormats.Standard),
                         PointTime = "09:42",
                         IsComplete = false,
-                        IsLate = true,
+                        IsLate = false,
                         IsTravel = false,
                         LastLocation = true,
                         ZIndex = 9,

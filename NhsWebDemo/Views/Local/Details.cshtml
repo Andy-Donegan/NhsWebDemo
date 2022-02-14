@@ -5,7 +5,7 @@
 }
 
 <div class="container-fluid px-4">
-    <div class="row">
+    <div class="row mt-1">
         <div class="d-flex">
             <div>
             <button type="button" class="btn btn-primary ml-auto me-3" onclick="history.go(-1);"><i class="fas fa-arrow-left"></i> Back</button>
@@ -19,11 +19,11 @@
     <!--Map-->
     <div class="col-xl-6 col-md-10">
         <div class="card">
-            <div class="card-header">
+@*            <div class="card-header">
                 <h5 class="card-title text-center">Map</h5>
-            </div>
-                <div class="card-body">            
-                    <div id="mapDiv" style="width:100%;height:285px">
+            </div>*@
+                <div class="card-body p-0">            
+                    <div id="mapDiv" style="width:100%;height:335px">
                     </div>
                 </div>
             <div class="card-footer">
@@ -34,10 +34,10 @@
     <!--Daily-->
     <div class="col-xl-auto col-md-auto">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-primary">
                 <h5 class="card-title text-center">Daily</h5>
             </div>
-                <div class="card-body">            
+                <div class="card-body p-0">            
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.dailyAppointments) : @Html.DisplayFor(model => model.dailyAppointments)</li>
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.dailyAttended) : @Html.DisplayFor(model => model.dailyAttended)</li>
@@ -48,10 +48,37 @@
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.dailyMissingData) : @Html.DisplayFor(model => model.dailyMissingData)</li>
                     </ul>     
                 </div>
-            <div class="card-footer">
-                <a href="#" class="btn btn-primary">Do Summat</a>
+            <div class="card-footer text-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dailyModal">Send Report</button>
             </div>
         </div>
+    </div>
+      <!--Daily Modal-->
+    <div class="modal fade" id="dailyModal" tabindex="-1" aria-labelledby="dailyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-danger">
+            <h5 class="modal-title" id="exampleModalLabel">Send Daily Report</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.name)">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <textarea class="form-control" id="message-text" placeholder="Hi @Html.DisplayFor(model => model.name), Please can we discuss todays appointments."></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a href="#" role="button" class="btn btn-primary popover-test" title="Message Sent" data-toggle="popover" data-bs-content="Report Sent.">Send message</a>
+          </div>
+        </div>
+      </div>
     </div>
     <!--Weekly-->
     <div class="col-xl-auto col-md-auto">
@@ -59,7 +86,7 @@
             <div class="card-header">
                 <h5 class="card-title text-center">Weekly</h5>
             </div>
-                <div class="card-body">            
+                <div class="card-body p-0">            
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklyAppointments) : @Html.DisplayFor(model => model.weeklyAppointments)</li>
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklyAttended) : @Html.DisplayFor(model => model.weeklyAttended)</li>
@@ -70,10 +97,37 @@
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklyMissingData) : @Html.DisplayFor(model => model.weeklyMissingData)</li>
                     </ul>     
                 </div>
-            <div class="card-footer">
-                <a href="#" class="btn btn-primary">Do I need</a>
+            <div class="card-footer text-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#weeklyModal">Send Report</button>
             </div>
         </div>
+    </div>
+    <!--Weekly Modal-->
+    <div class="modal fade" id="weeklyModal" tabindex="-1" aria-labelledby="weeklyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Send Weekly Report</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.name)">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <textarea class="form-control" id="message-text" placeholder="Hi @Html.DisplayFor(model => model.name), As promised here is a copy of last weeks data."></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a href="#" role="button" class="btn btn-primary popover-test" title="Message Sent" data-toggle="popover" data-bs-content="Report Sent.">Send message</a>
+          </div>
+        </div>
+      </div>
     </div>
     <!--Monthly-->
     <div class="col-xl-auto col-md-auto">
@@ -81,7 +135,7 @@
             <div class="card-header">
                 <h5 class="card-title text-center" >Monthly</h5>
             </div>
-                <div class="card-body">            
+                <div class="card-body p-0">            
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlyAppointments) : @Html.DisplayFor(model => model.monthlyAppointments)</li>
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlyAttended) : @Html.DisplayFor(model => model.monthlyAttended)</li>
@@ -92,12 +146,40 @@
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlyMissingData) : @Html.DisplayFor(model => model.monthlyMissingData)</li>
                     </ul>     
                 </div>
-            <div class="card-footer">
-                <a href="#" class="btn btn-primary">These Buttons</a>
+            <div class="card-footer text-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#monthlyModal">Send Report</button>
             </div>
         </div>
     </div>
+    <!--Monthly Modal-->
+    <div class="modal fade" id="monthlyModal" tabindex="-1" aria-labelledby="monthlyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Send Monthly Report</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.name)">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <textarea class="form-control" id="message-text" placeholder="Hi @Html.DisplayFor(model => model.name), Here is the monthly report which we can discuss in the review meeting."></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a href="#" role="button" class="btn btn-primary popover-test" title="Message Sent" data-toggle="popover" data-bs-content="Report Sent.">Send message</a>
+          </div>
+        </div>
+      </div>
     </div>
+    </div>
+
     <hr />
 
     <div class="row">
