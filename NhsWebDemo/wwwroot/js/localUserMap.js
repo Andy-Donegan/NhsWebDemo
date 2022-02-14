@@ -54,14 +54,6 @@
     var infoWindow = new google.maps.InfoWindow();
     var map = new google.maps.Map(document.getElementById("mapDiv"), mapOptions);
     var marker;
-    //Set Marker on the Map  
-    //var marker = new google.maps.Marker({
-    //    position: myAddress,
-    //    animation: google.maps.Animation.BOUNCE,
-    //    icon: {
-    //        url: "http://maps.google.com/mapfiles/kml/pal4/icon62.png"
-    //    }
-    //});
 
         //loop through each marker data
         for (i = 0; i < markers.length; i++) {

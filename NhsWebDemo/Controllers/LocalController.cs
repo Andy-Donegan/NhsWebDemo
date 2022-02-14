@@ -9,7 +9,6 @@ namespace NhsWebDemo.Controllers
     public class LocalController : Controller
     {
         private LocalDBContext _context;
-
         public LocalController(LocalDBContext localDB)
         {
             _context = localDB;
@@ -38,8 +37,8 @@ namespace NhsWebDemo.Controllers
             return View(localUserModel);
         }
 
-            // GET: LocalController/Create
-            public ActionResult Create()
+        // GET: LocalController/Create
+        public ActionResult Create()
         {
             return View();
         }
@@ -166,5 +165,6 @@ namespace NhsWebDemo.Controllers
 
             return Json(ListOfAddress);
         }
+
     }
 }

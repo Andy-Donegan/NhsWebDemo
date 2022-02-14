@@ -31,18 +31,18 @@
     <!--Daily-->
     <div class="col-xl-auto col-md-auto">
         <div class="card">
-            <div class="card-header bg-primary">
+            <div class="card-header bg-primary text-white" id="dailyHeader">
                 <h5 class="card-title text-center">Daily</h5>
             </div>
                 <div class="card-body p-0">            
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.dailyAppointments) : @Html.DisplayFor(model => model.dailyAppointments)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.dailyAttended) : @Html.DisplayFor(model => model.dailyAttended)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.dailyCancelled) : @Html.DisplayFor(model => model.dailyCancelled)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.dailyNonCompliance) : @Html.DisplayFor(model => model.dailyNonCompliance)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.dailyLate) : @Html.DisplayFor(model => model.dailyLate)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.dailySafetyAlerts) : @Html.DisplayFor(model => model.dailySafetyAlerts)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.dailyMissingData) : @Html.DisplayFor(model => model.dailyMissingData)</li>
+                        <li class="list-group-item" id="dailyApp">@Html.DisplayNameFor(model => model.dailyAppointments) : @Html.DisplayFor(model => model.dailyAppointments)</li>
+                        <li class="list-group-item" id="dailyAtt">@Html.DisplayNameFor(model => model.dailyAttended) : @Html.DisplayFor(model => model.dailyAttended)</li>
+                        <li class="list-group-item" id="dailyCan">@Html.DisplayNameFor(model => model.dailyCancelled) : @Html.DisplayFor(model => model.dailyCancelled)</li>
+                        <li class="list-group-item" id="dailyNC">@Html.DisplayNameFor(model => model.dailyNonCompliance) : @Html.DisplayFor(model => model.dailyNonCompliance)</li>
+                        <li class="list-group-item" id="dailyLate">@Html.DisplayNameFor(model => model.dailyLate) : @Html.DisplayFor(model => model.dailyLate)</li>
+                        <li class="list-group-item" id="dailyAlert">@Html.DisplayNameFor(model => model.dailySafetyAlerts) : @Html.DisplayFor(model => model.dailySafetyAlerts)</li>
+                        <li class="list-group-item" id="dailyMissing">@Html.DisplayNameFor(model => model.dailyMissingData) : @Html.DisplayFor(model => model.dailyMissingData)</li>
                     </ul>     
                 </div>
             <div class="card-footer text-center">
@@ -50,7 +50,8 @@
             </div>
         </div>
     </div>
-      <!--Daily Modal-->
+
+        <!--Daily Modal-->
     <div class="modal fade" id="dailyModal" tabindex="-1" aria-labelledby="dailyModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -80,18 +81,18 @@
     <!--Weekly-->
     <div class="col-xl-auto col-md-auto">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header  bg-primary text-white" id="weeklyHeader">
                 <h5 class="card-title text-center">Weekly</h5>
             </div>
                 <div class="card-body p-0">            
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklyAppointments) : @Html.DisplayFor(model => model.weeklyAppointments)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklyAttended) : @Html.DisplayFor(model => model.weeklyAttended)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklyCancelled) : @Html.DisplayFor(model => model.weeklyCancelled)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklyNonCompliance) : @Html.DisplayFor(model => model.weeklyNonCompliance)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklyLate) : @Html.DisplayFor(model => model.weeklyLate)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklySafetyAlerts) : @Html.DisplayFor(model => model.weeklySafetyAlerts)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.weeklyMissingData) : @Html.DisplayFor(model => model.weeklyMissingData)</li>
+                        <li class="list-group-item" id="weeklyApp">@Html.DisplayNameFor(model => model.weeklyAppointments) : @Html.DisplayFor(model => model.weeklyAppointments)</li>
+                        <li class="list-group-item" id="weeklyAtt">@Html.DisplayNameFor(model => model.weeklyAttended) : @Html.DisplayFor(model => model.weeklyAttended)</li>
+                        <li class="list-group-item" id="weeklyCan">@Html.DisplayNameFor(model => model.weeklyCancelled) : @Html.DisplayFor(model => model.weeklyCancelled)</li>
+                        <li class="list-group-item" id="weeklyNC">@Html.DisplayNameFor(model => model.weeklyNonCompliance) : @Html.DisplayFor(model => model.weeklyNonCompliance)</li>
+                        <li class="list-group-item" id="weeklyLate">@Html.DisplayNameFor(model => model.weeklyLate) : @Html.DisplayFor(model => model.weeklyLate)</li>
+                        <li class="list-group-item" id="weeklyAlert">@Html.DisplayNameFor(model => model.weeklySafetyAlerts) : @Html.DisplayFor(model => model.weeklySafetyAlerts)</li>
+                        <li class="list-group-item" id="weeklyMissing">@Html.DisplayNameFor(model => model.weeklyMissingData) : @Html.DisplayFor(model => model.weeklyMissingData)</li>
                     </ul>     
                 </div>
             <div class="card-footer text-center">
@@ -129,18 +130,18 @@
     <!--Monthly-->
     <div class="col-xl-auto col-md-auto">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-primary text-white" id="monthlyHeader">
                 <h5 class="card-title text-center" >Monthly</h5>
             </div>
                 <div class="card-body p-0">            
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlyAppointments) : @Html.DisplayFor(model => model.monthlyAppointments)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlyAttended) : @Html.DisplayFor(model => model.monthlyAttended)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlyCancelled) : @Html.DisplayFor(model => model.monthlyCancelled)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlyNonCompliance) : @Html.DisplayFor(model => model.monthlyNonCompliance)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlyLate) : @Html.DisplayFor(model => model.monthlyLate)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlySafetyAlerts) : @Html.DisplayFor(model => model.monthlySafetyAlerts)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.monthlyMissingData) : @Html.DisplayFor(model => model.monthlyMissingData)</li>
+                        <li class="list-group-item" id="monthlyApp">@Html.DisplayNameFor(model => model.monthlyAppointments) : @Html.DisplayFor(model => model.monthlyAppointments)</li>
+                        <li class="list-group-item" id="monthlyAtt">@Html.DisplayNameFor(model => model.monthlyAttended) : @Html.DisplayFor(model => model.monthlyAttended)</li>
+                        <li class="list-group-item" id="monthlyCan">@Html.DisplayNameFor(model => model.monthlyCancelled) : @Html.DisplayFor(model => model.monthlyCancelled)</li>
+                        <li class="list-group-item" id="monthlyNC">@Html.DisplayNameFor(model => model.monthlyNonCompliance) : @Html.DisplayFor(model => model.monthlyNonCompliance)</li>
+                        <li class="list-group-item" id="monthlyLate">@Html.DisplayNameFor(model => model.monthlyLate) : @Html.DisplayFor(model => model.monthlyLate)</li>
+                        <li class="list-group-item" id="monthlyAlert">@Html.DisplayNameFor(model => model.monthlySafetyAlerts) : @Html.DisplayFor(model => model.monthlySafetyAlerts)</li>
+                        <li class="list-group-item" id="monthlyMissing">@Html.DisplayNameFor(model => model.monthlyMissingData) : @Html.DisplayFor(model => model.monthlyMissingData)</li>
                     </ul>     
                 </div>
             <div class="card-footer text-center">
@@ -202,5 +203,10 @@
         
 </div>
 
+<script type="text/javascript">
+    var modelData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String)
+</script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO7gJ-7CFGmfOj5FrJJ_UzeKYn3CC4R48"></script> 
 <script src="~/js/localUserMap.js"></script>
+<script src="~/js/localUserDetails.js"></script>
