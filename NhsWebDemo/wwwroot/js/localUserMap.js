@@ -1,4 +1,10 @@
-﻿$(document).ready(function () {
+﻿var travelMarkers = Array();
+var appointmentMarkers = Array();
+var completeMarkers = Array();
+var OutstandingMarkers = Array();
+var allMarkers = Array();
+
+$(document).ready(function () {
     //enable popovers
     $('[data-toggle="popover"]').popover();
 
@@ -34,8 +40,9 @@
 
         }
     });
+});
 
-    function initializeMap(markers) {
+function initializeMap(markers) {
     //Set the Default Latitude and Longitude of the Map  
     var myAddress = new google.maps.LatLng(53.829721, -1.778213);
 
@@ -53,60 +60,94 @@
     //Display the Google map in the div control with the defined Options  
     var infoWindow = new google.maps.InfoWindow();
     var map = new google.maps.Map(document.getElementById("mapDiv"), mapOptions);
-    var marker;
 
-        //loop through each marker data
-        for (i = 0; i < markers.length; i++) {
-            var data = markers[i]
+    //loop through each marker data
+    for (i = 0; i < markers.length; i++) {
+        var data = markers[i]
 
-            //set lat long of marker
-            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+        //set lat long of marker
+        var myLatlng = new google.maps.LatLng(data.lat, data.lng);
 
-            // set standard Marker Icon as Travel
-            var iconUrl = "http://maps.google.com/mapfiles/kml/pal4/icon62.png";
-            // Check location state and change Icon accordingly
-            if (!data.isTravel) {
-                if (data.isComplete) {
-                    // Appointment Complete
-                    iconUrl = "http://maps.google.com/mapfiles/ms/icons/grn-pushpin.png";
-                }
-                else if (data.isLate) {
-                    // Appointment is Late
-                    iconUrl = "http://maps.google.com/mapfiles/ms/icons/red-pushpin.png";
-                }
-                else {
-                    // Appointment is outstanding
-                    iconUrl = "http://maps.google.com/mapfiles/ms/icons/blue-pushpin.png";
-                }
+        // set standard Marker Icon as Travel
+        var iconUrl = "http://maps.google.com/mapfiles/kml/pal4/icon62.png";
+        // Check location state and change Icon accordingly
+        if (!data.isTravel) {
+            if (data.isComplete) {
+                // Appointment Complete
+                iconUrl = "http://maps.google.com/mapfiles/ms/icons/grn-pushpin.png";
             }
-            
-            // Create new marker
-            marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                title: data.title,
-                icon: iconUrl,
-                zIndex: data.zIndex,
-            });
-
-            (function (marker, data) {
-                // add a on marker click event
-                google.maps.event.addListener(marker, "click", function (e) {
-                    //show description
-                    infoWindow.setContent(data.description);
-                    infoWindow.open(map, marker);
-                });
-            })(marker, data);
-            // Set last location to bounce.
-            if (data.lastLocation) {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-                map.setCenter(new google.maps.LatLng(myLatlng), 15);
+            else if (data.isLate) {
+                // Appointment is Late
+                iconUrl = "http://maps.google.com/mapfiles/ms/icons/red-pushpin.png";
+            }
+            else {
+                // Appointment is outstanding
+                iconUrl = "http://maps.google.com/mapfiles/ms/icons/blue-pushpin.png";
             }
         }
 
-    }
-});
+        // Create new marker
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: data.title,
+            icon: iconUrl,
+            zIndex: data.zIndex,
+        });
 
+        // Check marker type and assign to Array to allow toggling of data types displayed on map.
+        allMarkers.push(marker);
+        if (!data.isTravel) {
+            // it is not a travel icon.
+            appointmentMarkers.push(marker);
+            if (data.isComplete) {
+                // Appointment Complete
+                completeMarkers.push(marker);
+            }
+            else {
+                // Appointment is outstanding
+                OutstandingMarkers.push(marker);
+            }
+        }
+        else {
+            //Add marker to Travel Array
+            travelMarkers.push(marker);
+        }
+
+
+        (function (marker, data) {
+            // add a on marker click event
+            google.maps.event.addListener(marker, "click", function (e) {
+                //show description
+                infoWindow.setContent(data.description);
+                infoWindow.open(map, marker);
+            });
+        })(marker, data);
+        // Set last location to bounce.
+        if (data.lastLocation) {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            map.setCenter(new google.maps.LatLng(myLatlng), 15);
+        }
+    }
+}
+
+function ToggleTravelData() {
+    for (i = 0; i < travelMarkers.length; i++) {
+        if (travelMarkers[i].getVisible() == true)
+            travelMarkers[i].setVisible(false);
+        else
+            travelMarkers[i].setVisible(true);
+    }
+}
+
+function ToggleAppointmentData() {
+    for (i = 0; i < appointmentMarkers.length; i++) {
+        if (appointmentMarkers[i].getVisible() == true)
+            appointmentMarkers[i].setVisible(false);
+        else
+            appointmentMarkers[i].setVisible(true);
+    }
+}
     // Car Icon "http://maps.google.com/mapfiles/kml/pal4/icon62.png"
     // Blue dot "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
     // Green dot "http://maps.google.com/mapfiles/ms/icons/green-dot.png"

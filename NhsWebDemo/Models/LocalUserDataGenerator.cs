@@ -23,35 +23,37 @@ namespace NhsWebDemo.Models
                 }
                 for (int i = 1; i < 10; i++)
                 {
+
                     // Generate Random field Data
                     int locationId = random.Next(0, Location.Length);
                     int serviceId = random.Next(0, Service.Length);
+
                     // Generate Daily Data
                     var randomAppointments = RandomNumber.Next(5, 10);
-                    var randomAttended = RandomNumber.Next(1, randomAppointments-1);
+                    var randomCancelled = RandomNumber.Next(0, 3);
+                    var randomNonCompliance = RandomNumber.Next(0, 1);
+                    var randomAttended = RandomNumber.Next(1, randomAppointments - (randomCancelled + randomNonCompliance));
+                    var randomLate = RandomNumber.Next(0, randomAppointments - randomAttended);
                     var randomMissingData = RandomNumber.Next(0, randomAppointments - 1);
                     var randomSafetyAlerts = RandomNumber.Next(0, 2);
-                    var randomCancelled = RandomNumber.Next(0, 2);
-                    var randomLate = RandomNumber.Next(0, randomAppointments - randomAttended);
-                    var randomNonCompliance = RandomNumber.Next(0, 1);
 
                     // Generate Weekly Data
-                    var randomWeeklyAppointments = (RandomNumber.Next(7, 9) * 5) + RandomNumber.Next(0,5);
-                    var randomWeeklyAttended = (randomWeeklyAppointments - RandomNumber.Next(7,25));
-                    var randomWeeklyMissingData = RandomNumber.Next(randomMissingData, randomWeeklyAppointments / 2);
-                    var randomWeeklySafetyAlerts = RandomNumber.Next(randomSafetyAlerts, 6);
-                    var randomWeeklyCancelled = RandomNumber.Next(randomCancelled, randomWeeklyAppointments - randomWeeklyAttended);
-                    var randomWeeklyLate = RandomNumber.Next(randomLate, randomWeeklyAppointments - randomWeeklyAttended);
-                    var randomWeeklyNonCompliance = RandomNumber.Next(randomNonCompliance, randomWeeklyAppointments - randomWeeklyAttended);
+                    var randomWeeklyAppointments = randomAppointments + ((RandomNumber.Next(7, 10) * 4) + RandomNumber.Next(0, 5));
+                    var randomWeeklyCancelled = RandomNumber.Next(randomCancelled, 10);
+                    var randomWeeklyNonCompliance = RandomNumber.Next(randomNonCompliance, 4);
+                    var randomWeeklyAttended = randomWeeklyAppointments - (randomWeeklyCancelled + randomWeeklyNonCompliance);
+                    var randomWeeklyLate = RandomNumber.Next(randomLate, randomLate + (randomWeeklyAppointments - randomWeeklyAttended));
+                    var randomWeeklyMissingData = RandomNumber.Next(randomMissingData, randomMissingData + (randomWeeklyAppointments - randomWeeklyAttended));
+                    var randomWeeklySafetyAlerts = RandomNumber.Next(randomSafetyAlerts, randomSafetyAlerts+ RandomNumber.Next(0,5));
 
                     // Generate Monthly Data
-                    var randomMonthlyAppointments = (RandomNumber.Next(7, 8) * 20) + RandomNumber.Next(0, 15);
-                    var randomMonthlyAttended = (randomMonthlyAppointments - RandomNumber.Next(9, 40));
-                    var randomMonthlyMissingData = RandomNumber.Next(randomWeeklyMissingData, randomMonthlyAppointments / 2);
-                    var randomMonthlySafetyAlerts = RandomNumber.Next(randomWeeklySafetyAlerts, 12);
-                    var randomMonthlyCancelled = RandomNumber.Next(randomWeeklyCancelled, randomMonthlyAppointments - randomMonthlyAttended);
-                    var randomMonthlyLate = RandomNumber.Next(randomWeeklyLate, randomMonthlyAppointments - randomMonthlyAttended);
-                    var randomMonthlyNonCompliance = RandomNumber.Next(randomWeeklyNonCompliance, randomMonthlyAppointments - randomMonthlyAttended);
+                    var randomMonthlyAppointments = randomWeeklyAppointments + (RandomNumber.Next(7, 10) * 15);
+                    var randomMonthlyCancelled = RandomNumber.Next(randomWeeklyCancelled, 30);
+                    var randomMonthlyNonCompliance = RandomNumber.Next(randomWeeklyNonCompliance, 12);
+                    var randomMonthlyAttended = randomMonthlyAppointments - (randomMonthlyCancelled + randomMonthlyNonCompliance);
+                    var randomMonthlyLate = RandomNumber.Next(randomWeeklyLate, randomWeeklyLate + (randomMonthlyAppointments - randomMonthlyAttended));
+                    var randomMonthlyMissingData = RandomNumber.Next(randomWeeklyMissingData, randomWeeklyMissingData +(randomMonthlyAppointments - randomMonthlyAttended));
+                    var randomMonthlySafetyAlerts = RandomNumber.Next(randomWeeklySafetyAlerts, randomWeeklySafetyAlerts + RandomNumber.Next(0, 10));
 
                     context.LocalUserModels.Add(
                         new LocalUserModel
