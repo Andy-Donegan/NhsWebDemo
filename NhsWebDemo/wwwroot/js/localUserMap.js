@@ -1,8 +1,13 @@
 ﻿var travelMarkers = Array();
 var appointmentMarkers = Array();
+var appMarkersVisState = true;
 var completeMarkers = Array();
+var compMarkersVisState = true;
 var OutstandingMarkers = Array();
+var OutMarkersVisState = true;
 var allMarkers = Array();
+var lastMarker;
+var map;
 
 $(document).ready(function () {
     //enable popovers
@@ -59,7 +64,7 @@ function initializeMap(markers) {
 
     //Display the Google map in the div control with the defined Options  
     var infoWindow = new google.maps.InfoWindow();
-    var map = new google.maps.Map(document.getElementById("mapDiv"), mapOptions);
+    map = new google.maps.Map(document.getElementById("mapDiv"), mapOptions);
 
     //loop through each marker data
     for (i = 0; i < markers.length; i++) {
@@ -69,7 +74,7 @@ function initializeMap(markers) {
         var myLatlng = new google.maps.LatLng(data.lat, data.lng);
 
         // set standard Marker Icon as Travel
-        var iconUrl = "http://maps.google.com/mapfiles/kml/pal4/icon62.png";
+        var iconUrl = "http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png";
         // Check location state and change Icon accordingly
         if (!data.isTravel) {
             if (data.isComplete) {
@@ -114,7 +119,6 @@ function initializeMap(markers) {
             travelMarkers.push(marker);
         }
 
-
         (function (marker, data) {
             // add a on marker click event
             google.maps.event.addListener(marker, "click", function (e) {
@@ -127,8 +131,21 @@ function initializeMap(markers) {
         if (data.lastLocation) {
             marker.setAnimation(google.maps.Animation.BOUNCE);
             map.setCenter(new google.maps.LatLng(myLatlng), 15);
+            lastMarker = marker;
         }
     }
+}
+
+function CheckLastMarkerVisible() {
+    if (lastMarker.getVisible() == true) {
+        lastMarker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+}
+
+function ToggleLastLocationData() {
+    map.setCenter(lastMarker.internalPosition);
+    lastMarker.setVisible(true);
+    CheckLastMarkerVisible();
 }
 
 function ToggleTravelData() {
@@ -137,17 +154,64 @@ function ToggleTravelData() {
             travelMarkers[i].setVisible(false);
         else
             travelMarkers[i].setVisible(true);
+        //logic check for last appointment make bouncy
+        CheckLastMarkerVisible();
     }
 }
 
 function ToggleAppointmentData() {
     for (i = 0; i < appointmentMarkers.length; i++) {
-        if (appointmentMarkers[i].getVisible() == true)
+        if (appMarkersVisState)
             appointmentMarkers[i].setVisible(false);
         else
             appointmentMarkers[i].setVisible(true);
+
+                //logic check for last appointment make bouncy
+        CheckLastMarkerVisible();
     }
+     // toggle Visible State
+    appMarkersVisState = !appMarkersVisState;
+    compMarkersVisState = appMarkersVisState;
+    OutMarkersVisState = appMarkersVisState;
 }
+
+function ToggleCompleteData() {
+    for (i = 0; i < completeMarkers.length; i++) {
+        if (compMarkersVisState) {
+            completeMarkers[i].setVisible(false);
+            appMarkersVisState = false;
+        }
+        else {
+            completeMarkers[i].setVisible(true);
+            if (OutMarkersVisState) appMarkersVisState = true;
+        }
+
+        //logic check for last appointment make bouncy
+        CheckLastMarkerVisible();
+    }
+     // toggle Visible State
+    compMarkersVisState = !compMarkersVisState;
+}
+
+function ToggleOutstandingData() {
+    for (i = 0; i < OutstandingMarkers.length; i++) {
+        if (OutMarkersVisState) {
+            OutstandingMarkers[i].setVisible(false);
+            appMarkersVisState = false;
+        }
+        else {
+            OutstandingMarkers[i].setVisible(true);
+            if (compMarkersVisState) appMarkersVisState = true;
+        }
+
+        //logic check for last appointment make bouncy
+        CheckLastMarkerVisible();
+    }
+     // toggle Visible State
+    OutMarkersVisState = !OutMarkersVisState;
+}
+
+    // Travel Dot "http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png"
     // Car Icon "http://maps.google.com/mapfiles/kml/pal4/icon62.png"
     // Blue dot "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
     // Green dot "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
