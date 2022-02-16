@@ -1,4 +1,7 @@
 ﻿$(document).ready(function () {
+
+    var rowHeader = 0;
+
     var localTable = $("#example").DataTable({
             "processing": true, // for show progress bar    
             "serverSide": true, // for process server side    
@@ -17,6 +20,216 @@
                     "targets": [26], // remove sortable from Details Button Column
                     "visible": true,
                     "sortable": false
+                },
+                // Change Daily alert level cell styling 
+                {
+                    //Late
+                    "targets": [9],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (cellData >= 6) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-danger');
+                            rowHeader += 100;
+                        } else
+                            if (cellData >= 4) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('text-warning');
+                                rowHeader += 10;
+                            } else
+                                if (cellData >= 2) {
+                                    $(td).addClass('fw-bolder');
+                                    $(td).addClass('text-info');
+                                    rowHeader += 1;
+                                }
+                    }
+                },
+                {
+                    // Alerts
+                    "targets": [10],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (cellData > 1) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-danger');
+                            rowHeader += 100;
+                        } else
+                            if (cellData == 1) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('text-warning');
+                                rowHeader += 10;
+                            }
+                    }
+                },
+                {
+                    //Missing
+                    "targets": [11],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (cellData >= 7) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-danger');
+                            rowHeader += 100;
+                        } else
+                            if (cellData >= 5) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('text-warning');
+                                rowHeader += 10;
+                            } else
+                                if (cellData >= 3) {
+                                    $(td).addClass('fw-bolder');
+                                    $(td).addClass('text-info');
+                                    rowHeader += 1;
+                                }
+                    }
+                },
+                // Change Weekly alert level cell styling 
+                {
+                    //Late
+                    "targets": [16],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (cellData >= 12) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-danger');
+                            //rowHeader += 100;
+                        } else
+                            if (cellData >= 8) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('text-warning');
+                                //rowHeader += 10;
+                            } else
+                                if (cellData >= 5) {
+                                    $(td).addClass('fw-bolder');
+                                    $(td).addClass('text-info');
+                                    //rowHeader += 1;
+                                }
+                    }
+                },
+                {
+                    //Alerts
+                    "targets": [17],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (cellData > 4) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-danger');
+                            //rowHeader += 100;
+                        } else
+                            if (cellData > 2) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('text-warning');
+                                //rowHeader += 10;
+                            } else
+                                if (cellData == 2) {
+                                    $(td).addClass('fw-bolder');
+                                    $(td).addClass('text-info');
+                                    //rowHeader += 1;
+                                }
+                    }
+                },
+                {
+                    //Missing
+                    "targets": [18],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (cellData >= 12) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-danger');
+                            //rowHeader += 100;
+                        } else
+                            if (cellData >= 8) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('text-warning');
+                                //rowHeader += 10;
+                            } else
+                                if (cellData >= 5) {
+                                    $(td).addClass('fw-bolder');
+                                    $(td).addClass('text-info');
+                                    //rowHeader += 1;
+                                }
+                    }
+                },
+                // Change Monthly alert level cell styling 
+                {
+                    //Late
+                    "targets": [23],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (cellData >= 28) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-danger');
+                            //rowHeader += 100;
+                        } else
+                            if (cellData >= 23) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('text-warning');
+                                //rowHeader += 10;
+                            } else
+                                if (cellData >= 17) {
+                                    $(td).addClass('fw-bolder');
+                                    $(td).addClass('text-info');
+                                    //rowHeader += 1;
+                                }
+                    }
+                },
+                {
+                    //Alerts
+                    "targets": [24],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (cellData > 7) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-danger');
+                            rowHeader += 100;
+                        } else
+                            if (cellData > 6) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('text-warning');
+                                rowHeader += 10;
+                            } else
+                                if (cellData > 4) {
+                                    $(td).addClass('fw-bolder');
+                                    $(td).addClass('text-info');
+                                    rowHeader += 1;
+                                }
+                    }
+                },
+                {
+                    //Missing
+                    "targets": [25],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (cellData >= 28) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-danger');
+                            //rowHeader += 100;
+                        } else
+                            if (cellData >= 23) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('text-warning');
+                                //rowHeader += 10;
+                            } else
+                                if (cellData >= 17) {
+                                    $(td).addClass('fw-bolder');
+                                    $(td).addClass('text-info');
+                                    //rowHeader += 1;
+                                }
+                    }
+                },
+                // Change Name column styling based on highest alert level
+                {
+                    "targets": [1],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if (rowHeader >= 100) {
+                            $(td).addClass('fw-bolder');
+                            $(td).addClass('text-white');
+                            $(td).addClass('bg-danger');
+                            rowHeader += 100;
+                        } else
+                            if (rowHeader >= 10) {
+                                $(td).addClass('fw-bolder');
+                                $(td).addClass('bg-warning');
+                                rowHeader += 10;
+                            } else
+                                if (rowHeader > 0) {
+                                    $(td).addClass('fw-bolder');
+                                    $(td).addClass('bg-info');
+                                    rowHeader += 1;
+                                }
+                        rowHeader = 0;
+                    }
                 }
                 ],
             "columns": [
@@ -25,6 +238,7 @@
                 { "data": "organisation", "name": "Organisation", "autoWidth": true },
                 { "data": "service", "name": "service", "autoWidth": true },
                 { "data": "location", "name": "location", "autoWidth": true },
+
                 { "data": "dailyAppointments", "name": "dailyAppointments", "autoWidth": true },
                 { "data": "dailyAttended", "name": "dailyAttended", "autoWidth": true },
                 { "data": "dailyCancelled", "name": "dailyCancelled", "autoWidth": true },
@@ -49,7 +263,7 @@
                 { "data": "monthlySafetyAlerts", "name": "monthlySafetyAlerts", "autoWidth": true, "visible": false },
                 { "data": "monthlyMissingData", "name": "monthlyMissingData", "autoWidth": true, "visible": false },
                 {
-                    "render": function (data, type, full, meta) { return '<a class="btn btn-info" href="/Local/Details/' + full.iD + '">Details</a>'; }
+                    "render": function (data, type, full, meta) { return '<a class="btn btn-primary" href="/Local/Details/' + full.iD + '">Details</a>'; }
                 },
             ]
 
