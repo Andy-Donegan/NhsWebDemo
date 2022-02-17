@@ -255,7 +255,7 @@
                 if (dailyRowHeader >= 10) {
                     $(row).find('td:eq(0)').addClass('bg-warning');
                 } else
-                    if (dailyRowHeader > 1) {
+                    if (dailyRowHeader > 0) {
                         $(row).find('td:eq(0)').addClass('bg-info');
                     }
         }
