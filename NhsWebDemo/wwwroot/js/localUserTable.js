@@ -1,7 +1,5 @@
 ﻿$(document).ready(function () {
 
-    var rowHeader = 0;
-
     var localTable = $("#example").DataTable({
             "processing": true, // for show progress bar    
             "serverSide": true, // for process server side    
@@ -29,17 +27,14 @@
                         if (cellData >= 6) {
                             $(td).addClass('fw-bolder');
                             $(td).addClass('text-danger');
-                            rowHeader += 100;
                         } else
                             if (cellData >= 4) {
                                 $(td).addClass('fw-bolder');
                                 $(td).addClass('text-warning');
-                                rowHeader += 10;
                             } else
                                 if (cellData >= 2) {
                                     $(td).addClass('fw-bolder');
                                     $(td).addClass('text-info');
-                                    rowHeader += 1;
                                 }
                     }
                 },
@@ -50,12 +45,10 @@
                         if (cellData > 1) {
                             $(td).addClass('fw-bolder');
                             $(td).addClass('text-danger');
-                            rowHeader += 100;
                         } else
                             if (cellData == 1) {
                                 $(td).addClass('fw-bolder');
                                 $(td).addClass('text-warning');
-                                rowHeader += 10;
                             }
                     }
                 },
@@ -66,17 +59,14 @@
                         if (cellData >= 7) {
                             $(td).addClass('fw-bolder');
                             $(td).addClass('text-danger');
-                            rowHeader += 100;
                         } else
                             if (cellData >= 5) {
                                 $(td).addClass('fw-bolder');
                                 $(td).addClass('text-warning');
-                                rowHeader += 10;
                             } else
                                 if (cellData >= 3) {
                                     $(td).addClass('fw-bolder');
                                     $(td).addClass('text-info');
-                                    rowHeader += 1;
                                 }
                     }
                 },
@@ -88,17 +78,15 @@
                         if (cellData >= 12) {
                             $(td).addClass('fw-bolder');
                             $(td).addClass('text-danger');
-                            //rowHeader += 100;
+
                         } else
                             if (cellData >= 8) {
                                 $(td).addClass('fw-bolder');
                                 $(td).addClass('text-warning');
-                                //rowHeader += 10;
                             } else
                                 if (cellData >= 5) {
                                     $(td).addClass('fw-bolder');
                                     $(td).addClass('text-info');
-                                    //rowHeader += 1;
                                 }
                     }
                 },
@@ -109,17 +97,14 @@
                         if (cellData > 4) {
                             $(td).addClass('fw-bolder');
                             $(td).addClass('text-danger');
-                            //rowHeader += 100;
                         } else
                             if (cellData > 2) {
                                 $(td).addClass('fw-bolder');
                                 $(td).addClass('text-warning');
-                                //rowHeader += 10;
                             } else
                                 if (cellData == 2) {
                                     $(td).addClass('fw-bolder');
                                     $(td).addClass('text-info');
-                                    //rowHeader += 1;
                                 }
                     }
                 },
@@ -129,18 +114,15 @@
                     "createdCell": function (td, cellData, rowData, row, col) {
                         if (cellData >= 12) {
                             $(td).addClass('fw-bolder');
-                            $(td).addClass('text-danger');
-                            //rowHeader += 100;
+                            $(td).addClass('text-danger');                           
                         } else
                             if (cellData >= 8) {
                                 $(td).addClass('fw-bolder');
-                                $(td).addClass('text-warning');
-                                //rowHeader += 10;
+                                $(td).addClass('text-warning');                              
                             } else
                                 if (cellData >= 5) {
                                     $(td).addClass('fw-bolder');
-                                    $(td).addClass('text-info');
-                                    //rowHeader += 1;
+                                    $(td).addClass('text-info');                                   
                                 }
                     }
                 },
@@ -151,18 +133,15 @@
                     "createdCell": function (td, cellData, rowData, row, col) {
                         if (cellData >= 28) {
                             $(td).addClass('fw-bolder');
-                            $(td).addClass('text-danger');
-                            //rowHeader += 100;
+                            $(td).addClass('text-danger');                           
                         } else
                             if (cellData >= 23) {
                                 $(td).addClass('fw-bolder');
-                                $(td).addClass('text-warning');
-                                //rowHeader += 10;
+                                $(td).addClass('text-warning');                                
                             } else
                                 if (cellData >= 17) {
                                     $(td).addClass('fw-bolder');
-                                    $(td).addClass('text-info');
-                                    //rowHeader += 1;
+                                    $(td).addClass('text-info');                                    
                                 }
                     }
                 },
@@ -172,18 +151,15 @@
                     "createdCell": function (td, cellData, rowData, row, col) {
                         if (cellData > 7) {
                             $(td).addClass('fw-bolder');
-                            $(td).addClass('text-danger');
-                            rowHeader += 100;
+                            $(td).addClass('text-danger');                            
                         } else
                             if (cellData > 6) {
                                 $(td).addClass('fw-bolder');
-                                $(td).addClass('text-warning');
-                                rowHeader += 10;
+                                $(td).addClass('text-warning');                                
                             } else
                                 if (cellData > 4) {
                                     $(td).addClass('fw-bolder');
-                                    $(td).addClass('text-info');
-                                    rowHeader += 1;
+                                    $(td).addClass('text-info');                                    
                                 }
                     }
                 },
@@ -193,42 +169,16 @@
                     "createdCell": function (td, cellData, rowData, row, col) {
                         if (cellData >= 28) {
                             $(td).addClass('fw-bolder');
-                            $(td).addClass('text-danger');
-                            //rowHeader += 100;
+                            $(td).addClass('text-danger');                           
                         } else
                             if (cellData >= 23) {
                                 $(td).addClass('fw-bolder');
-                                $(td).addClass('text-warning');
-                                //rowHeader += 10;
+                                $(td).addClass('text-warning');                                
                             } else
                                 if (cellData >= 17) {
                                     $(td).addClass('fw-bolder');
-                                    $(td).addClass('text-info');
-                                    //rowHeader += 1;
+                                    $(td).addClass('text-info');                                    
                                 }
-                    }
-                },
-                // Change Name column styling based on highest alert level
-                {
-                    "targets": [1],
-                    "createdCell": function (td, cellData, rowData, row, col) {
-                        if (rowHeader >= 100) {
-                            $(td).addClass('fw-bolder');
-                            $(td).addClass('text-white');
-                            $(td).addClass('bg-danger');
-                            rowHeader += 100;
-                        } else
-                            if (rowHeader >= 10) {
-                                $(td).addClass('fw-bolder');
-                                $(td).addClass('bg-warning');
-                                rowHeader += 10;
-                            } else
-                                if (rowHeader > 0) {
-                                    $(td).addClass('fw-bolder');
-                                    $(td).addClass('bg-info');
-                                    rowHeader += 1;
-                                }
-                        rowHeader = 0;
                     }
                 }
                 ],
@@ -265,9 +215,53 @@
                 {
                     "render": function (data, type, full, meta) { return '<a class="btn btn-primary" href="/Local/Details/' + full.iD + '">Details</a>'; }
                 },
-            ]
+        ],
+        rowCallback: function (row, data, index) {
+            // After row creation cycle through and check for alert levels and set name column colour to highest alert level.
+
+            var dailyRowHeader = 0;
+
+            if (data.dailyLate >= 6) {
+                dailyRowHeader += 100;
+            } else
+                if (data.dailyLate >= 4) {
+                    dailyRowHeader += 10;
+                } else
+                    if (data.dailyLate >= 2) {
+                        dailyRowHeader += 1;
+                    }
+
+            if (data.dailySafetyAlerts > 1) {
+                dailyRowHeader += 100;
+            } else
+                if (data.dailySafetyAlerts == 1) {
+                    dailyRowHeader += 10;
+                }
+
+            if (data.dailyMissingData >= 7) {
+                dailyRowHeader += 100;
+            } else
+                if (data.dailyMissingData >= 5) {
+                    dailyRowHeader += 10;
+                } else
+                    if (data.dailyMissingData >= 3) {
+                        dailyRowHeader += 1;
+                    }
+
+            if (dailyRowHeader >= 100) {
+                $(row).find('td:eq(0)').addClass('text-white');
+                $(row).find('td:eq(0)').addClass('bg-danger');
+            } else
+                if (dailyRowHeader >= 10) {
+                    $(row).find('td:eq(0)').addClass('bg-warning');
+                } else
+                    if (dailyRowHeader > 1) {
+                        $(row).find('td:eq(0)').addClass('bg-info');
+                    }
+        }
 
     });
+
     $('#showDaily').on('click', function () {
         // Show Daily Data columns and hide others
         //Daily Columns
@@ -277,6 +271,7 @@
         //Monthly columns
         localTable.columns([19, 20, 21, 22, 23, 24, 25]).visible(false);
     });
+
     $('#showWeekly').on('click', function () {
         // show weekly columns and hide others
         //Daily Columns
@@ -286,6 +281,7 @@
         //Monthly columns
         localTable.columns([19, 20, 21, 22, 23, 24, 25]).visible(false);
     });
+
     $('#showMonthly').on('click', function () {
         // show monthly columns and hide others
         //Daily Columns

@@ -54,7 +54,7 @@ namespace NhsWebDemo.Models
                     var randomMonthlyLate = RandomNumber.Next(randomWeeklyLate, randomWeeklyLate + (randomMonthlyAppointments - randomMonthlyAttended));
                     var randomMonthlyMissingData = RandomNumber.Next(randomWeeklyMissingData, randomWeeklyMissingData +(randomMonthlyAppointments - randomMonthlyAttended));
                     var randomMonthlySafetyAlerts = RandomNumber.Next(randomWeeklySafetyAlerts, randomWeeklySafetyAlerts + RandomNumber.Next(0, 10));
-
+                    
                     context.LocalUserModels.Add(
                         new LocalUserModel
                         {
@@ -62,7 +62,7 @@ namespace NhsWebDemo.Models
                             name = Name.FullName(NameFormats.Standard),
                             organisation = "BDCT",
                             service = Service[serviceId],
-                            location = Location[locationId], 
+                            location = Location[locationId],
                             dailyAppointments = randomAppointments,
                             dailyAttended = randomAttended,
                             dailyCancelled = randomCancelled,
@@ -87,7 +87,7 @@ namespace NhsWebDemo.Models
                             monthlySafetyAlerts = randomMonthlySafetyAlerts,
                             monthlyMissingData = randomMonthlyMissingData
                         }
-                        );
+                        ); ;
                 }
 
                 context.SaveChanges();
