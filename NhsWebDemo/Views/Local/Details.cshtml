@@ -191,7 +191,14 @@
                     <i class="fas fa-chart-area me-1"></i>
                     Area Chart Example
                 </div>
-                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                <figure class="highcharts-figure">
+                    <div id="pieChartContainer"></div>
+                    <p class="highcharts-description">
+                        Pie charts are very popular for showing a compact overview of a
+                        composition or comparison. While they can be harder to read than
+                        column charts, they remain a popular choice for small datasets.
+                    </p>
+                </figure>
             </div>
         </div>
         <div class="col-xl-6">
@@ -200,7 +207,15 @@
                     <i class="fas fa-chart-bar me-1"></i>
                     Bar Chart Example
                 </div>
-                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+               <figure class="highcharts-figure">
+                    <div id="barChartContainer"></div>
+                    <p class="highcharts-description">
+                        A basic column chart compares rainfall values between four cities.
+                        Tokyo has the overall highest amount of rainfall, followed by New York.
+                        The chart is making use of the axis crosshair feature, to highlight
+                        months as they are hovered over.
+                    </p>
+                </figure>
             </div>
         </div>
     </div>
@@ -211,6 +226,14 @@
     var modelData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String)
 </script>
 
+ <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO7gJ-7CFGmfOj5FrJJ_UzeKYn3CC4R48"></script> 
 <script src="~/js/localUserMap.js"></script>
 <script src="~/js/localUserDetails.js"></script>
+<script src="~/js/localUserChart.js"></script>
+
+
+
