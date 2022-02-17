@@ -7,13 +7,13 @@
       "destination": "wwwroot/lib/datatables/"
     },
     {
-      "library": "datatables.net@2.1.1",
-      "destination": "wwwroot/lib/datatables.net/"
-    },
-    {
       "provider": "jsdelivr",
       "library": "@googlemaps/markerclusterer@1.0.19",
       "destination": "wwwroot/lib/googlemaps/markerclusterer/"
+    },
+    {
+      "library": "highcharts@9.3.3",
+      "destination": "wwwroot/lib/highcharts/"
     }
   ]
 }
