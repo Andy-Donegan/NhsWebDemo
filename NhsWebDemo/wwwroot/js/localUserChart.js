@@ -6,10 +6,10 @@
         type: 'pie'
     },
     title: {
-        text: 'Browser market shares in January, 2018'
+        text: 'January 2022'
     },
     tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{series.name}: <b>{point.y:.f}</b>'
     },
     accessibility: {
         point: {
@@ -22,42 +22,37 @@
             cursor: 'pointer',
             dataLabels: {
                 enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-            }
+                format: '<b>{point.name}</b>: {point.y:.f}'
+            },
+            showInLegend: true
         }
     },
     series: [{
-        name: 'Brands',
+        name: 'Appointments',
         colorByPoint: true,
         data: [{
-            name: 'Chrome',
-            y: 61.41,
+            name: 'Appointments',
+            y: Math.floor(Math.random() * (200 - 140 + 1)) + 140,
             sliced: true,
             selected: true
         }, {
-            name: 'Internet Explorer',
-            y: 11.84
+            name: 'Attended',
+            y: Math.floor(Math.random() * (160 - 120 + 1)) + 120
         }, {
-            name: 'Firefox',
-            y: 10.85
+            name: 'Cancelled',
+            y: Math.floor(Math.random() * (30 - 5 + 1)) + 5
         }, {
-            name: 'Edge',
-            y: 4.67
+            name: 'Non Compliance',
+            y: Math.floor(Math.random() * (20 - 1 + 1)) + 1
         }, {
-            name: 'Safari',
-            y: 4.18
+            name: 'Late',
+            y: 6
         }, {
-            name: 'Sogou Explorer',
-            y: 1.64
+            name: 'Missing Data',
+            y: Math.floor(Math.random() * (100 - 1 + 1)) + 1
         }, {
-            name: 'Opera',
-            y: 1.6
-        }, {
-            name: 'QQ',
-            y: 1.2
-        }, {
-            name: 'Other',
-            y: 2.61
+            name: 'Safety Alerts',
+            y: Math.floor(Math.random() * (35 - 1 + 1)) + 1
         }]
     }]
 });
@@ -67,10 +62,7 @@ Highcharts.chart('barChartContainer', {
         type: 'column'
     },
     title: {
-        text: 'Monthly Average Rainfall'
-    },
-    subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: '2021 Appointment Data'
     },
     xAxis: {
         categories: [
@@ -92,13 +84,13 @@ Highcharts.chart('barChartContainer', {
     yAxis: {
         min: 0,
         title: {
-            text: 'Rainfall (mm)'
+            text: 'Monthly Totals'
         }
     },
     tooltip: {
         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            '<td style="padding:0"><b>{point.y:.f}</b></td></tr>',
         footerFormat: '</table>',
         shared: true,
         useHTML: true
@@ -109,21 +101,31 @@ Highcharts.chart('barChartContainer', {
             borderWidth: 0
         }
     },
+    // Generate Random array of numbers for Yearly figures.
     series: [{
-        name: 'Tokyo',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        name: 'Appointments',
+        data: Array.from({ length: 12 }, () => Math.floor(Math.random() * (200 - 140 + 1)) + 140)
 
     }, {
-        name: 'New York',
-        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+        name: 'Attended',
+        data: Array.from({ length: 12 }, () => Math.floor(Math.random() * (160 - 120 + 1)) + 120)
 
     }, {
-        name: 'London',
-        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+        name: 'Cancelled',
+        data: Array.from({ length: 12 }, () => Math.floor(Math.random() * (30 - 5 + 1)) + 5)
 
     }, {
-        name: 'Berlin',
-        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+        name: 'Non Compliance',
+        data: Array.from({ length: 12 }, () => Math.floor(Math.random() * (20 - 1 + 1)) + 1)
 
-    }]
+    }, {
+        name: 'Missing Data',
+        data: Array.from({ length: 12 }, () => Math.floor(Math.random() * (100 - 1 + 1)) + 1)
+
+    }, {
+        name: 'Alerts',
+        data: Array.from({ length: 12 }, () => Math.floor(Math.random() * (35 - 1 + 1)) + 1)
+
+    }
+    ]
 });

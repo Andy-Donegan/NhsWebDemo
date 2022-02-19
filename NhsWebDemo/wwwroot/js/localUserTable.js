@@ -19,7 +19,7 @@
                     "visible": true,
                     "sortable": false
                 },
-                // Change Daily alert level cell styling 
+                // Change Daily alert level cell styling , this could all be done on rowCreate call back as well.
                 {
                     //Late
                     "targets": [9],
@@ -218,7 +218,6 @@
         ],
         rowCallback: function (row, data, index) {
             // After row creation cycle through and check for alert levels and set name column colour to highest alert level.
-
             var dailyRowHeader = 0;
 
             if (data.dailyLate >= 6) {
@@ -259,7 +258,6 @@
                         $(row).find('td:eq(0)').addClass('bg-info');
                     }
         }
-
     });
 
     $('#showDaily').on('click', function () {
