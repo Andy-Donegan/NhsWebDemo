@@ -1,4 +1,4 @@
-﻿Highcharts.chart('pieChartContainer', {
+﻿var pieChart = Highcharts.chart('pieChartContainer', {
     chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
@@ -55,6 +55,39 @@
             y: Math.floor(Math.random() * (35 - 1 + 1)) + 1
         }]
     }]
+});
+
+const dropdown = document.querySelector("#dropdown");
+
+dropdown.addEventListener('change', (event) => {
+    let value = event.target.value, // not used but can be used for conditional data, currently generating complete random for each month.
+        newData = [{
+            name: 'Appointments',
+            y: Math.floor(Math.random() * (200 - 140 + 1)) + 140,
+        }, {
+            name: 'Attended',
+            y: Math.floor(Math.random() * (160 - 120 + 1)) + 120
+        }, {
+            name: 'Cancelled',
+            y: Math.floor(Math.random() * (30 - 5 + 1)) + 5
+        }, {
+            name: 'Non Compliance',
+            y: Math.floor(Math.random() * (20 - 1 + 1)) + 1
+        }, {
+            name: 'Late',
+            y: 6
+        }, {
+            name: 'Missing Data',
+            y: Math.floor(Math.random() * (100 - 1 + 1)) + 1
+        }, {
+            name: 'Safety Alerts',
+            y: Math.floor(Math.random() * (35 - 1 + 1)) + 1
+        }];
+
+    pieChart.series[0].update({
+        data: newData
+    });
+
 });
 
 Highcharts.chart('barChartContainer', {
