@@ -6,7 +6,7 @@
         type: 'pie'
     },
     title: {
-        text: 'January 2022'
+        text: 'January 2021'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.y:.f}</b>'
@@ -57,6 +57,7 @@
     }]
 });
 
+// Drop down select list, just generates random new data every time a new month is selected.
 const dropdown = document.querySelector("#dropdown");
 
 dropdown.addEventListener('change', (event) => {
@@ -82,8 +83,8 @@ dropdown.addEventListener('change', (event) => {
         }, {
             name: 'Safety Alerts',
             y: Math.floor(Math.random() * (35 - 1 + 1)) + 1
-        }];
-
+            }];
+    pieChart.setTitle({ text: value + ' 2021' });
     pieChart.series[0].update({
         data: newData
     });

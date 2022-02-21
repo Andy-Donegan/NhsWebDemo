@@ -187,24 +187,24 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-chart-area me-1"></i>
-                    Area Chart Example
+                    Select Month
+                    <select id="dropdown">
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
                 </div>
                 <figure class="highcharts-figure">
                     <div id="pieChartContainer"></div>
-                    <select id="dropdown">
-                        <option value="Series1">January</option>
-                        <option value="Series2">February</option>
-                        <option value="Series2">March</option>
-                        <option value="Series2">April</option>
-                        <option value="Series2">May</option>
-                        <option value="Series2">June</option>
-                        <option value="Series2">July</option>
-                        <option value="Series2">August</option>
-                        <option value="Series2">September</option>
-                        <option value="Series2">October</option>
-                        <option value="Series2">November</option>
-                        <option value="Series2">December</option>
-                    </select>
                 </figure>
             </div>
         </div>
@@ -224,6 +224,7 @@
 </div>
 
 <script type="text/javascript">
+    // take viewmodel and put into js object to get access in js files.
     var modelData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String)
 </script>
 
