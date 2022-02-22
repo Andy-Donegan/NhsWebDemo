@@ -3,7 +3,8 @@
     var localTable = $("#example").DataTable({
             "processing": true, // for show progress bar    
             "serverSide": true, // for process server side    
-            "filter": true, // this is for disable filter (search box)    
+            "filter": true, // this is for disable filter (search box)   
+            "responsive": true,
             "ajax": {
                 "url": "/Local/LoadUserData",
                 "type": "POST",
@@ -17,7 +18,8 @@
                 {
                     "targets": [26], // remove sortable from Details Button Column
                     "visible": true,
-                    "sortable": false
+                    "sortable": false,
+                    "responsivePriority": 1
                 },
                 // Change Daily alert level cell styling , this could all be done on rowCreate call back as well.
                 {
@@ -213,7 +215,7 @@
                 { "data": "monthlySafetyAlerts", "name": "monthlySafetyAlerts", "autoWidth": true, "visible": false },
                 { "data": "monthlyMissingData", "name": "monthlyMissingData", "autoWidth": true, "visible": false },
                 {
-                    "render": function (data, type, full, meta) { return '<a class="btn btn-primary" href="/Local/Details/' + full.iD + '">Details</a>'; }
+                   "data": null, "render": function (data, type, full, meta) { return '<a class="btn btn-primary" href="/Local/Details/' + full.iD + '">Details</a>'; }
                 },
         ],
         rowCallback: function (row, data, index) {
