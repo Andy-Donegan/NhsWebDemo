@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<LocalDBContext>(options => options.UseInMemoryDatabase(databaseName: "LocalUsers"));
+builder.Services.AddDbContext<NhsDBContext>(options => options.UseInMemoryDatabase(databaseName: "NhsWebDemoDB"));
 
 var app = builder.Build();
 

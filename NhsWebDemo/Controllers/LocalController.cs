@@ -13,6 +13,7 @@ namespace NhsWebDemo.Controllers
         {
             _context = localDB;
         }
+
         // GET: LocalController
         public ActionResult Index()
         {
