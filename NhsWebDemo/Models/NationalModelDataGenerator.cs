@@ -12,82 +12,6 @@ namespace NhsWebDemo.Models
             using (var context = new NhsDBContext(
                 serviceProvider.GetRequiredService<DbContextOptions<NhsDBContext>>()))
             {
-                // Create National Model Data
-                // Check for any records already in database.
-                if (context.NationalModels.Any())
-                {
-                    return;   // Database has been seeded
-                }
-                context.NationalModels.AddRange(
-                  new NationalModel(1, "North east and Yorkshire"),
-                  new NationalModel(2, "North west"),
-                  new NationalModel(3, "East of England"),
-                  new NationalModel(4, "London"),
-                  new NationalModel(5, "Midlands"),
-                  new NationalModel(6, "South East"),
-                  new NationalModel(7, "South West")
-                );
-                // Save National Data
-                context.SaveChanges();
-
-                // Create Regional Model Data
-                // Check for any records already in database.
-                if (context.RegionalModels.Any())
-                {
-                    return;   // Database has been seeded
-                }
-                context.RegionalModels.AddRange(
-                  new RegionalModel(1, 1, "Cumbria and the North East"),
-                  new RegionalModel(2, 1, "West Yorkshire and Harrogate"),
-                  new RegionalModel(3, 1, "Humber, Coast and Vale"),
-                  new RegionalModel(4, 1, "South Yorkshire and Bassetlaw"),
-
-                  new RegionalModel(5, 2, "Lancashire and South Cumbria"),
-                  new RegionalModel(6, 2, "Greater Manchester"),
-                  new RegionalModel(7, 2, "Cheshire and Merseyside"),
-
-                  new RegionalModel(8, 5, "Staffordshire and Stoke on Trent"),
-                  new RegionalModel(9, 5, "Shropshire and Telford and Wrekin"),
-                  new RegionalModel(10, 5, "Derbyshire"),
-                  new RegionalModel(11, 5, "Lincolnshire"),
-                  new RegionalModel(12, 5, "Nottinghamshire"),
-                  new RegionalModel(13, 5, "Leicester, Leicestershire and Rutland"),
-                  new RegionalModel(14, 5, "The Black Country"),
-                  new RegionalModel(15, 5, "Birmingham and Solihull"),
-                  new RegionalModel(16, 5, "Coventry and Warwickshire"),
-                  new RegionalModel(17, 5, "Herefordshire and Worcestershire"),
-                  new RegionalModel(18, 5, "Northamptonshire"),
-
-                  new RegionalModel(19, 3, "Cambridgeshire and Peterborough"),
-                  new RegionalModel(20, 3, "Norfolk and Waveney"),
-                  new RegionalModel(21, 3, "Suffolk and North East Essex"),
-                  new RegionalModel(22, 3, "Bedfordshire, Luton and Milton Keynes"),
-                  new RegionalModel(23, 3, "Hertfordshire and West Essex"),
-                  new RegionalModel(24, 3, "Mid and South Essex"),
-
-                  new RegionalModel(25, 4, "North West London"),
-                  new RegionalModel(26, 4, "Central London"),
-                  new RegionalModel(27, 4, "East London"),
-                  new RegionalModel(28, 4, "South East London"),
-                  new RegionalModel(29, 4, "South West London"),
-
-                  new RegionalModel(30, 6, "Kent and Medway"),
-                  new RegionalModel(31, 6, "Sussex and East Surrey"),
-                  new RegionalModel(32, 6, "Frimley Health and Care"),
-                  new RegionalModel(33, 6, "Surrey Heartlands"),
-                  new RegionalModel(34, 6, "Buckinghamshire, Oxfordshire and Berkshire West"),
-                  new RegionalModel(35, 6, "Hampshire and Isle of Wight"),
-
-                  new RegionalModel(36, 7, "Cornwall and the Isles of Scilly"),
-                  new RegionalModel(37, 7, "Devon"),
-                  new RegionalModel(38, 7, "Somerset"),
-                  new RegionalModel(39, 7, "Bristol, North Somerset and South Gloucestershire"),
-                  new RegionalModel(40, 7, "Bath and North East Somerset, Swindon and Wiltshire"),
-                  new RegionalModel(41, 7, "Dorset"),
-                  new RegionalModel(42, 7, "Gloucestershire")
-                );
-                // Save Regional Data
-                context.SaveChanges();
 
                 // Create Local Model Data
                 // Check for any records already in database.
@@ -193,7 +117,7 @@ namespace NhsWebDemo.Models
                   new LocalModel(95, 23, "West Essex"),
                   new LocalModel(96, 24, "Basildon and Brentwood"),
                   new LocalModel(97, 24, "Southend"),
-                  new LocalModel(98, 24, "Castlepoint and Rochford"), 
+                  new LocalModel(98, 24, "Castlepoint and Rochford"),
                   new LocalModel(99, 24, "Mid Essex"),
                   new LocalModel(100, 24, "Thurrock"),
                   new LocalModel(101, 25, "Brent"),
@@ -286,6 +210,83 @@ namespace NhsWebDemo.Models
                   new LocalModel(188, 42, "Tewkesbury, Newent and Staunton")
                 );
                 // Save Local Data
+                context.SaveChanges();
+
+                // Create Regional Model Data
+                // Check for any records already in database.
+                if (context.RegionalModels.Any())
+                {
+                    return;   // Database has been seeded
+                }
+                context.RegionalModels.AddRange(
+                  new RegionalModel(1, 1, "Cumbria and the North East"),
+                  new RegionalModel(2, 1, "West Yorkshire and Harrogate"),
+                  new RegionalModel(3, 1, "Humber, Coast and Vale"),
+                  new RegionalModel(4, 1, "South Yorkshire and Bassetlaw"),
+
+                  new RegionalModel(5, 2, "Lancashire and South Cumbria"),
+                  new RegionalModel(6, 2, "Greater Manchester"),
+                  new RegionalModel(7, 2, "Cheshire and Merseyside"),
+
+                  new RegionalModel(8, 5, "Staffordshire and Stoke on Trent"),
+                  new RegionalModel(9, 5, "Shropshire and Telford and Wrekin"),
+                  new RegionalModel(10, 5, "Derbyshire"),
+                  new RegionalModel(11, 5, "Lincolnshire"),
+                  new RegionalModel(12, 5, "Nottinghamshire"),
+                  new RegionalModel(13, 5, "Leicester, Leicestershire and Rutland"),
+                  new RegionalModel(14, 5, "The Black Country"),
+                  new RegionalModel(15, 5, "Birmingham and Solihull"),
+                  new RegionalModel(16, 5, "Coventry and Warwickshire"),
+                  new RegionalModel(17, 5, "Herefordshire and Worcestershire"),
+                  new RegionalModel(18, 5, "Northamptonshire"),
+
+                  new RegionalModel(19, 3, "Cambridgeshire and Peterborough"),
+                  new RegionalModel(20, 3, "Norfolk and Waveney"),
+                  new RegionalModel(21, 3, "Suffolk and North East Essex"),
+                  new RegionalModel(22, 3, "Bedfordshire, Luton and Milton Keynes"),
+                  new RegionalModel(23, 3, "Hertfordshire and West Essex"),
+                  new RegionalModel(24, 3, "Mid and South Essex"),
+
+                  new RegionalModel(25, 4, "North West London"),
+                  new RegionalModel(26, 4, "Central London"),
+                  new RegionalModel(27, 4, "East London"),
+                  new RegionalModel(28, 4, "South East London"),
+                  new RegionalModel(29, 4, "South West London"),
+
+                  new RegionalModel(30, 6, "Kent and Medway"),
+                  new RegionalModel(31, 6, "Sussex and East Surrey"),
+                  new RegionalModel(32, 6, "Frimley Health and Care"),
+                  new RegionalModel(33, 6, "Surrey Heartlands"),
+                  new RegionalModel(34, 6, "Buckinghamshire, Oxfordshire and Berkshire West"),
+                  new RegionalModel(35, 6, "Hampshire and Isle of Wight"),
+
+                  new RegionalModel(36, 7, "Cornwall and the Isles of Scilly"),
+                  new RegionalModel(37, 7, "Devon"),
+                  new RegionalModel(38, 7, "Somerset"),
+                  new RegionalModel(39, 7, "Bristol, North Somerset and South Gloucestershire"),
+                  new RegionalModel(40, 7, "Bath and North East Somerset, Swindon and Wiltshire"),
+                  new RegionalModel(41, 7, "Dorset"),
+                  new RegionalModel(42, 7, "Gloucestershire")
+                );
+                // Save Regional Data
+                context.SaveChanges();
+
+                // Create National Model Data
+                // Check for any records already in database.
+                if (context.NationalModels.Any())
+                {
+                    return;   // Database has been seeded
+                }
+                context.NationalModels.AddRange(
+                  new NationalModel(1, "North east and Yorkshire"),
+                  new NationalModel(2, "North west"),
+                  new NationalModel(3, "East of England"),
+                  new NationalModel(4, "London"),
+                  new NationalModel(5, "Midlands"),
+                  new NationalModel(6, "South East"),
+                  new NationalModel(7, "South West")
+                );
+                // Save National Data
                 context.SaveChanges();
 
             }

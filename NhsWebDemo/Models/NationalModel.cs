@@ -20,6 +20,10 @@ namespace NhsWebDemo.Models
             set { _name = value; }
         }
 
-        public NationalModel(int Id, string Name) { _id = Id; _name = Name; }
+        public NationalModel(int Id, string Name) 
+        {
+            _id = Id; 
+            _name = Name;
+        }
     }
 }
