@@ -27,7 +27,7 @@ namespace NhsWebDemo.Models
                   new NationalModel(6, "South East"),
                   new NationalModel(7, "South West")
                 );
-
+                // Save National Data
                 context.SaveChanges();
 
                 // Create Regional Model Data
@@ -86,10 +86,10 @@ namespace NhsWebDemo.Models
                   new RegionalModel(41, 7, "Dorset"),
                   new RegionalModel(42, 7, "Gloucestershire")
                 );
-
+                // Save Regional Data
                 context.SaveChanges();
 
-                // Create Regional Model Data
+                // Create Local Model Data
                 // Check for any records already in database.
                 if (context.LocalModels.Any())
                 {
@@ -285,7 +285,7 @@ namespace NhsWebDemo.Models
                   new LocalModel(187, 42, "Stroud and Berkeley Vale"),
                   new LocalModel(188, 42, "Tewkesbury, Newent and Staunton")
                 );
-
+                // Save Local Data
                 context.SaveChanges();
 
             }
