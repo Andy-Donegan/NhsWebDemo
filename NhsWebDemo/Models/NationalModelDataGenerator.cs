@@ -12,7 +12,7 @@ namespace NhsWebDemo.Models
             using (var context = new NhsDBContext(
                 serviceProvider.GetRequiredService<DbContextOptions<NhsDBContext>>()))
             {
-
+#region LocalModel Generation
                 // Create Local Model Data
                 // Check for any records already in database.
                 if (context.LocalModels.Any())
@@ -211,7 +211,8 @@ namespace NhsWebDemo.Models
                 );
                 // Save Local Data
                 context.SaveChanges();
-
+                #endregion
+#region RegionalModel Generation
                 // Create Regional Model Data
                 // Check for any records already in database.
                 if (context.RegionalModels.Any())
@@ -270,7 +271,8 @@ namespace NhsWebDemo.Models
                 );
                 // Save Regional Data
                 context.SaveChanges();
-
+                #endregion
+#region NationalModel Generation
                 // Create National Model Data
                 // Check for any records already in database.
                 if (context.NationalModels.Any())
@@ -288,7 +290,13 @@ namespace NhsWebDemo.Models
                 );
                 // Save National Data
                 context.SaveChanges();
-
+#endregion
+                // populate National Model with Regional Data
+                foreach ( NationalModel model in context.NationalModels)
+                {
+                    model.Regions = context.RegionalModels.Where(x => x.NationalId == model.Id).ToList();
+                }
+                // Populate Regional Model with Local Data (TODO)
             }
         }
     }

@@ -20,6 +20,8 @@ namespace NhsWebDemo.Models
             set { _name = value; }
         }
 
+        public List<RegionalModel> Regions = new List<RegionalModel>();
+
         public NationalModel(int Id, string Name) 
         {
             _id = Id; 
