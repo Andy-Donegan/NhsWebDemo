@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NhsWebDemo.Models;
 
 namespace NhsWebDemo.Controllers
 {
@@ -7,7 +8,7 @@ namespace NhsWebDemo.Controllers
     {
         // GET: NationalController
         public ActionResult Index()
-        {
+        {      
             return View();
         }
 

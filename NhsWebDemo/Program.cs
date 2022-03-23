@@ -13,12 +13,19 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    //3. Get the instance of LocalDBContext in our services layer
+    // Get the instance of LocalDBContext in our services layer
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<LocalDBContext>();
 
-    //4. Call the DataGenerator to create sample data
+    // Call the DataGenerator to create sample data
     LocalUserDataGenerator.Initialize(services);
+
+    // Get the instance of LocalDBContext in our services layer
+    var servicesNhs = scope.ServiceProvider;
+    var contextNhs = servicesNhs.GetRequiredService<NhsDBContext>();
+
+    // Call the DataGenerator to create sample data
+    NationalModelDataGenerator.Initialize(services);
 }
 
 

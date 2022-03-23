@@ -13,7 +13,8 @@ namespace NhsWebDemo.DataContext
         {
         }
 
-        public DbSet<Models.LocalUserModel> LocalUserModels { get; set; }
-        public DbSet<Models.LocalUserMapModel> LocalUserMapModels { get; set; }
+        public DbSet<Models.NationalModel> NationalModels { get; set; }
+        public DbSet<Models.RegionalModel> RegionalModels { get; set; }
+        public DbSet<Models.LocalModel> LocalModels { get; set; }
     }
 }
